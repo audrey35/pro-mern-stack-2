@@ -4,7 +4,9 @@
   "description": "Pro MERN Stack (2nd Edition)",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "nodemon -w server server/server.js",
+    "compile": "babel src --out-dir public",
+    "watch": "babel src --out-dir public --watch --verbose"
   },
   "repository": {
     "type": "git",
@@ -20,7 +22,8 @@
   },
   "homepage": "https://github.com/audrey35/pro-mern-stack-2#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "nodemon": "^1.19.4"
   },
   "engines": {
     "node": ">=10.24.1"
