@@ -12,20 +12,25 @@
 
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <!-- Babel transforms JSX into regular JS based 
+        React.createElement() calls for browsers' 
+        JS engines to understand -->
+    <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
   </head>
 
   <body>
     <div id="content"></div>
 
-    <script>
-      // React.createElement(type, [props], [...children])
-      // type: any HTML tag as a string or a React component
-      // props: an object containing HTML attributes or custom component properties
-      // children: 0 or more children elements created using createElement()
-      const element = React.createElement(
-        "div",
-        { title: "Outer div" },
-        React.createElement("h1", { className: "title" }, "Hello World!")
+    <!-- tell babel which scripts to transform with 
+        attribute type="text/babel" -->
+    <script type="text/babel">
+      // use JSX to construct an element or an element hierarchy
+      // rather than nesting React.createElement() calls
+      const element = (
+        <div title="Outer div">
+          <h1>Hello World!</h1>
+        </div>
       );
 
       // render the React elements and actually display them on the site
